@@ -1,0 +1,42 @@
+[
+  {
+    "name": "project 1",
+    "users": [
+      {
+        "name": "John",
+        "tasks": [
+          "check the server operation",
+          "fix error"
+        ]
+      },
+      {
+        "name": "Andrey",
+        "tasks": [
+          "check the components work after the server operation",
+          "explore each element",
+          "fix error"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "project 2",
+    "users": [
+      {
+        "name": "Alex",
+        "tasks": [
+          "develop a car",
+          "develop a documentation"
+        ]
+      },
+      {
+        "name": "Katy",
+        "tasks": [
+          "check a documentation",
+          "check a car",
+          "Buy car"
+        ]
+      }
+    ]
+  }
+]
