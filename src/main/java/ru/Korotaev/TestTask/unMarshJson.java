@@ -1,6 +1,7 @@
 package ru.Korotaev.TestTask;
 
 import ru.Korotaev.TestTask.Dao.ReadInJSonAndWriteInDB;
+import ru.Korotaev.TestTask.Dao.WriteOnConsoleAllInformation;
 import ru.Korotaev.TestTask.Models.Project;
 import ru.Korotaev.TestTask.Models.Task;
 import ru.Korotaev.TestTask.Models.User;
@@ -15,7 +16,7 @@ public class unMarshJson {
         readInJSonAndWriteInDB.readInJSonAndWriteInDB();
 
         //Create new project, user on the project and tasks for user
-
+        ////////////////////////////////////////
         ProjectService projectService = new ProjectService();
         UserService userService = new UserService();
         TaskService taskService = new TaskService();
@@ -36,5 +37,10 @@ public class unMarshJson {
         taskService.saveTask(task);
         userService.updateUser(newUser);
         System.out.println("Project created");
+        ////////////////////////////////////////
+        System.out.println();
+        //This part on this code write all information from database
+        WriteOnConsoleAllInformation writeOnConsoleAllInformation = new WriteOnConsoleAllInformation();
+        writeOnConsoleAllInformation.allInformationAboutProjectsUsersAndTasks();
     }
 }
