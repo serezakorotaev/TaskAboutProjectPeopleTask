@@ -796,11 +796,13 @@ false posixrules
     <database id="4" parent="1" name="ProjectPeopleTask">
       <ObjectId>33112</ObjectId>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1901</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2435</IntrospectionStateNumber>
       <Current>1</Current>
       <Relations>sequence|table|33206|33141|1
 sequence|table|33209|33169|1
 sequence|table|33212|33152|1
+sequence|table|33222|33216|1
+sequence|table|33239|33233|1
 </Relations>
     </database>
     <database id="5" parent="1" name="first_db">
@@ -879,7 +881,7 @@ UC/10
 </Acl>
       <StateNumber>352</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>1902</IntrospectionStateNumber>
+      <IntrospectionStateNumber>2436</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="20" parent="4" name="plpgsql">
@@ -978,34 +980,56 @@ UC/10
       <StateNumber>1880</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="32" parent="19" name="task_id_seq">
+    <sequence id="32" parent="19" name="subtaskone_id_seq">
+      <ObjectId>33222</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2414</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="33" parent="19" name="subtasktwo_id_seq">
+      <ObjectId>33239</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2427</StateNumber>
+      <DataType>bigint|0s</DataType>
+    </sequence>
+    <sequence id="34" parent="19" name="task_id_seq">
       <ObjectId>33209</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1889</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <sequence id="33" parent="19" name="users_id_seq">
+    <sequence id="35" parent="19" name="users_id_seq">
       <ObjectId>33212</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1898</StateNumber>
       <DataType>bigint|0s</DataType>
     </sequence>
-    <table id="34" parent="19" name="project">
+    <table id="36" parent="19" name="project">
       <ObjectId>33141</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1439</StateNumber>
     </table>
-    <table id="35" parent="19" name="task">
+    <table id="37" parent="19" name="subtaskone">
+      <ObjectId>33216</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2434</StateNumber>
+    </table>
+    <table id="38" parent="19" name="subtasktwo">
+      <ObjectId>33233</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>2434</StateNumber>
+    </table>
+    <table id="39" parent="19" name="task">
       <ObjectId>33169</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1443</StateNumber>
+      <StateNumber>2421</StateNumber>
     </table>
-    <table id="36" parent="19" name="users">
+    <table id="40" parent="19" name="users">
       <ObjectId>33152</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1443</StateNumber>
     </table>
-    <column id="37" parent="34" name="id">
+    <column id="41" parent="36" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1013,13 +1037,13 @@ UC/10
       <DefaultExpression>nextval(&apos;project_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="38" parent="34" name="name">
+    <column id="42" parent="36" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1370</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="39" parent="34" name="project_pk">
+    <index id="43" parent="36" name="project_pk">
       <ObjectId>33150</ObjectId>
       <StateNumber>1377</StateNumber>
       <ColNames>id</ColNames>
@@ -1029,14 +1053,142 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="40" parent="34" name="project_pk">
+    <key id="44" parent="36" name="project_pk">
       <ObjectId>33151</ObjectId>
       <StateNumber>1377</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>project_pk</UnderlyingIndexName>
     </key>
-    <column id="41" parent="35" name="id">
+    <column id="45" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2416</StateNumber>
+      <DefaultExpression>nextval(&apos;subtaskone_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="46" parent="37" name="name">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>2410</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="47" parent="37" name="time">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2410</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="48" parent="37" name="task_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2418</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="49" parent="37" name="subtaskone_id_uindex">
+      <ObjectId>33225</ObjectId>
+      <StateNumber>2419</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <index id="50" parent="37" name="subtaskone_pk">
+      <ObjectId>33226</ObjectId>
+      <StateNumber>2420</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="51" parent="37" name="subtaskone_pk">
+      <ObjectId>33227</ObjectId>
+      <StateNumber>2420</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>subtaskone_pk</UnderlyingIndexName>
+    </key>
+    <foreign-key id="52" parent="37" name="subtaskone_task_id_fk">
+      <ObjectId>33228</ObjectId>
+      <StateNumber>2421</StateNumber>
+      <ColNames>task_id</ColNames>
+      <RefTableId>33169</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>task</RefTableName>
+      <RefKeyName>task_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="53" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>2429</StateNumber>
+      <DefaultExpression>nextval(&apos;subtasktwo_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="38" name="name">
+      <Position>2</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>2424</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="55" parent="38" name="time">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2424</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="56" parent="38" name="subtaskOne_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>2431</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="57" parent="38" name="subtasktwo_id_uindex">
+      <ObjectId>33242</ObjectId>
+      <StateNumber>2432</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <index id="58" parent="38" name="subtasktwo_pk">
+      <ObjectId>33243</ObjectId>
+      <StateNumber>2433</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+    </index>
+    <key id="59" parent="38" name="subtasktwo_pk">
+      <ObjectId>33244</ObjectId>
+      <StateNumber>2433</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>subtasktwo_pk</UnderlyingIndexName>
+    </key>
+    <foreign-key id="60" parent="38" name="subtasktwo_subtaskone_id_fk">
+      <ObjectId>33245</ObjectId>
+      <StateNumber>2434</StateNumber>
+      <ColNames>subtaskOne_id</ColNames>
+      <RefTableId>33216</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>subtaskone</RefTableName>
+      <RefKeyName>subtaskone_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="61" parent="39" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1044,19 +1196,19 @@ UC/10
       <DefaultExpression>nextval(&apos;task_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="42" parent="35" name="name">
+    <column id="62" parent="39" name="name">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1397</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="35" name="users_id">
+    <column id="63" parent="39" name="users_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1442</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="44" parent="35" name="task_id_uindex">
+    <index id="64" parent="39" name="task_id_uindex">
       <ObjectId>33178</ObjectId>
       <StateNumber>1404</StateNumber>
       <ColNames>id</ColNames>
@@ -1065,7 +1217,7 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="45" parent="35" name="task_pk">
+    <index id="65" parent="39" name="task_pk">
       <ObjectId>33179</ObjectId>
       <StateNumber>1405</StateNumber>
       <ColNames>id</ColNames>
@@ -1075,14 +1227,14 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="46" parent="35" name="task_pk">
+    <key id="66" parent="39" name="task_pk">
       <ObjectId>33180</ObjectId>
       <StateNumber>1405</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>task_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="47" parent="35" name="task_users_id_fk">
+    <foreign-key id="67" parent="39" name="task_users_id_fk">
       <ObjectId>33192</ObjectId>
       <StateNumber>1443</StateNumber>
       <ColNames>users_id</ColNames>
@@ -1094,7 +1246,7 @@ UC/10
       <OnDelete>cascade</OnDelete>
       <OnUpdate>cascade</OnUpdate>
     </foreign-key>
-    <column id="48" parent="36" name="id">
+    <column id="68" parent="40" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -1102,19 +1254,19 @@ UC/10
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="49" parent="36" name="firstname">
+    <column id="69" parent="40" name="firstname">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1380</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="50" parent="36" name="project_id">
+    <column id="70" parent="40" name="project_id">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>1438</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="51" parent="36" name="users_pk">
+    <index id="71" parent="40" name="users_pk">
       <ObjectId>33161</ObjectId>
       <StateNumber>1387</StateNumber>
       <ColNames>id</ColNames>
@@ -1124,14 +1276,14 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="52" parent="36" name="users_pk">
+    <key id="72" parent="40" name="users_pk">
       <ObjectId>33162</ObjectId>
       <StateNumber>1387</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pk</UnderlyingIndexName>
     </key>
-    <foreign-key id="53" parent="36" name="users_project_id_fk">
+    <foreign-key id="73" parent="40" name="users_project_id_fk">
       <ObjectId>33187</ObjectId>
       <StateNumber>1439</StateNumber>
       <ColNames>project_id</ColNames>
