@@ -15,9 +15,15 @@ public class SubtaskTwo {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "subtaskOne_id")
     private SubtaskOne subtaskOne;
+
     public SubtaskTwo(){}
     public SubtaskTwo(String name) {
         this.name = name;
+    }
+
+    public SubtaskTwo(String name , int time) {
+        this.name = name;
+        this.time = time;
     }
 
     public SubtaskTwo(int id , String name , int time , SubtaskOne subtaskOne) {

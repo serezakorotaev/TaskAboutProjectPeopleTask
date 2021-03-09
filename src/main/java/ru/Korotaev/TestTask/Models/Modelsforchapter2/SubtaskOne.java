@@ -19,12 +19,17 @@ public class SubtaskOne {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "task_id")
     private Task task;
-    @OneToMany(mappedBy = "subtaskone",cascade = CascadeType.ALL,orphanRemoval = false)
+    @OneToMany(mappedBy = "subtaskOne",cascade = CascadeType.ALL,orphanRemoval = true)
     List<SubtaskTwo> subtaskTwoList = new ArrayList<>();
 
     public SubtaskOne(){}
     public SubtaskOne(String name) {
         this.name = name;
+    }
+
+    public SubtaskOne( String name, int time) {
+        this.name = name;
+        this.time = time;
     }
 
     public SubtaskOne(int id , String name , int time , Task task , List<SubtaskTwo> subtaskTwoList) {

@@ -2,6 +2,7 @@ package ru.Korotaev.TestTask.Services;
 
 import ru.Korotaev.TestTask.Dao.ProjectDao;
 import ru.Korotaev.TestTask.Dao.TaskDao;
+import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskOne;
 import ru.Korotaev.TestTask.Models.Project;
 import ru.Korotaev.TestTask.Models.Task;
 import ru.Korotaev.TestTask.Models.User;
@@ -27,5 +28,7 @@ public class TaskService {
     public void deleteTask(Task task){
         taskDao.delete(task);
     }
-
+    public SubtaskOne findSubtaskOneById(int id){
+        return taskDao.findSubtaskById(id);
+    }
 }

@@ -3,6 +3,8 @@ package ru.Korotaev.TestTask.Utils;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
+import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskOne;
+import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskTwo;
 import ru.Korotaev.TestTask.Models.Project;
 import ru.Korotaev.TestTask.Models.Task;
 import ru.Korotaev.TestTask.Models.User;
@@ -20,10 +22,12 @@ public class HibernateSessionFactoryUtil {
                 configuration.addAnnotatedClass(Project.class);
                 configuration.addAnnotatedClass(User.class);
                 configuration.addAnnotatedClass(Task.class);
+                configuration.addAnnotatedClass(SubtaskOne.class);
+                configuration.addAnnotatedClass(SubtaskTwo.class);
                 StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
                 sessionFactory = configuration.buildSessionFactory(builder.build());
             } catch (Exception e) {
-                System.out.println("Исключение!" + e);
+                System.out.println("Исключение! " + e);
             }
         }
         return sessionFactory;

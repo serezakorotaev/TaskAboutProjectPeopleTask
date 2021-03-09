@@ -1,9 +1,8 @@
-package ru.Korotaev.TestTask.Dao;
+package ru.Korotaev.TestTask.Dao.Daoforchaptertwo;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ru.Korotaev.TestTask.Models.Task;
-import ru.Korotaev.TestTask.Models.User;
+import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskTwo;
 import ru.Korotaev.TestTask.Utils.HibernateSessionFactoryUtil;
 
 import java.sql.*;
@@ -11,61 +10,59 @@ import java.sql.*;
 import static ru.Korotaev.TestTask.Dao.ConnectionDao.*;
 import static ru.Korotaev.TestTask.Dao.ConnectionDao.PASSWORD;
 
-public class UserDao {
-    public void selectAllProject(User user) {
+public class SubtaskTwoDao {
+    public void selectAllSubtaskTwo(SubtaskTwo subtaskTwo) {
         try {
             Class.forName(DRIVER);
             Connection connection = DriverManager.getConnection(URL , USER , PASSWORD);
-            PreparedStatement preparedStatement = connection.prepareStatement("Select * from users");
+            PreparedStatement preparedStatement = connection.prepareStatement("Select * from subtasktwo");
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user.setId(resultSet.getInt("id"));
-                user.setName(resultSet.getString("name"));
-                System.out.println(user.getName());
+                subtaskTwo.setId(resultSet.getInt("id"));
+                subtaskTwo.setName(resultSet.getString("name"));
+                subtaskTwo.setTime(resultSet.getInt("time"));
+                System.out.println(subtaskTwo.getName() + " time execution :" + subtaskTwo.getTime());
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
-    public void selectProjectById(User user) {
+    public void selectSubtaskTwoById(SubtaskTwo subtaskTwo) {
         try {
             Class.forName(DRIVER);
             Connection connection = DriverManager.getConnection(URL , USER , PASSWORD);
-            PreparedStatement preparedStatement = connection.prepareStatement("Select * from users where id=?");
-            preparedStatement.setInt(1 , user.getId());
+            PreparedStatement preparedStatement = connection.prepareStatement("Select * from subtasktwo where id=?");
+            preparedStatement.setInt(1 , subtaskTwo.getId());
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                user.setId(resultSet.getInt("id"));
-                user.setName(resultSet.getString("name"));
-                System.out.println(user.getName());
+                subtaskTwo.setId(resultSet.getInt("id"));
+                subtaskTwo.setName(resultSet.getString("name"));
+                subtaskTwo.setTime(resultSet.getInt("time"));
+                System.out.println(subtaskTwo.getName() + " time execution :" + subtaskTwo.getTime());
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
-    public void save(User user){
+    public void save(SubtaskTwo subtaskTwo){
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        session.save(user);
+        session.save(subtaskTwo);
         tx1.commit();
         session.close();
     }
-    public void update(User user){
+    public void update(SubtaskTwo subtaskTwo){
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        session.update(user);
+        session.update(subtaskTwo);
         tx1.commit();
         session.close();
     }
-    public void delete(User user){
+    public void delete(SubtaskTwo subtaskTwo){
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction tx1 = session.beginTransaction();
-        session.delete(user);
+        session.delete(subtaskTwo);
         tx1.commit();
         session.close();
-    }
-    public Task findTaskById(int id){
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Task.class,id);
     }
 }

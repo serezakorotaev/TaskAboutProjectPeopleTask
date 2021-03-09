@@ -2,7 +2,7 @@ package ru.Korotaev.TestTask.Dao;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import ru.Korotaev.TestTask.Models.Project;
+import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskOne;
 import ru.Korotaev.TestTask.Models.Task;
 import ru.Korotaev.TestTask.Utils.HibernateSessionFactoryUtil;
 
@@ -63,5 +63,8 @@ public class TaskDao {
         session.delete(task);
         tx1.commit();
         session.close();
+    }
+    public SubtaskOne findSubtaskById(int id){
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(SubtaskOne.class,id);
     }
 }
