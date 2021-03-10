@@ -18,10 +18,10 @@ public class SubtaskTwoService {
     public void saveSubtaskTwo(SubtaskTwo subtaskTwo){
         subtaskTwoDao.save(subtaskTwo);
     }
-    public void updateSubtaskOne(SubtaskTwo subtaskTwo){
+    public void updateSubtaskTwo(SubtaskTwo subtaskTwo){
         subtaskTwoDao.update(subtaskTwo);
     }
-    public void deleteSubtaskOne(SubtaskTwo subtaskTwo){
+    public void deleteSubtaskTwo(SubtaskTwo subtaskTwo){
         subtaskTwoDao.delete(subtaskTwo);
     }
 }

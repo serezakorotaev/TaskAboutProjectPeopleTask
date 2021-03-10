@@ -11,8 +11,19 @@ import java.sql.*;
 import static ru.Korotaev.TestTask.Dao.ConnectionDao.*;
 import static ru.Korotaev.TestTask.Dao.ConnectionDao.PASSWORD;
 
+/**
+ * This class write all information from database on console, subtask's time too
+ * @author Sergey Korotaev
+ */
 public class WriteOnConsoleAllInformation {
-
+    /**
+     * This method write all information from database on console, subtask's time too
+     * @see Project
+     * @see User
+     * @see Task
+     * @see SubtaskOne
+     * @see SubtaskTwo
+     */
     public void allInformationAboutProjectsUsersAndTasks() {
         Project project = new Project();
         User user = new User();
@@ -72,9 +83,13 @@ public class WriteOnConsoleAllInformation {
                                 timeSubtaskTwo = timeSubtaskTwo + subtaskTwo.getTime();
                             }
                         }
-                        System.out.println("All time on execute subtasks: " + timeSubtaskOne + "sec by" + task.getName() + " task");
+                        if(timeSubtaskOne !=0) {
+                            System.out.println("All time on execute subtasks: " + timeSubtaskOne + "sec by" + subtaskOne.getName() + " task");
+                        }
                         System.out.println();
-                        System.out.println("All time on execute subtasks in subtask one: " + timeSubtaskTwo + "sec");
+                        if(timeSubtaskTwo != 0) {
+                            System.out.println("All time on execute subtasks in subtask one: " + timeSubtaskTwo + "sec");
+                        }
                         if (timeSubtaskOne < timeSubtaskTwo) {
                             System.out.println("THE TIME TO COMPLETE A SUBTASK IS LESS THAN THE TIME TO COMPLETE ITS SUBTASKS");
                         }

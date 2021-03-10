@@ -13,10 +13,27 @@ import ru.Korotaev.TestTask.Services.Servicesforchaptertwo.SubtaskTwoService;
 import ru.Korotaev.TestTask.Services.TaskService;
 import ru.Korotaev.TestTask.Services.UserService;
 
-
+/**
+ * This class save information from json file to database and create new projects, people,tasks. And write on conole
+ *
+ * @author Sergey Korotaev
+ * @see ReadInJSonAndWriteInDB
+ * @see ProjectService
+ * @see UserService
+ * @see TaskService
+ * @see SubtaskOneService
+ * @see SubtaskTwoService
+ * @see Project
+ * @see User
+ * @see Task
+ * @see SubtaskOne
+ * @see SubtaskTwo
+ * @see WriteOnConsoleAllInformation
+ */
 public class unMarshJson {
     public static void main(String[] args) {
         ReadInJSonAndWriteInDB readInJSonAndWriteInDB = new ReadInJSonAndWriteInDB();
+
         readInJSonAndWriteInDB.readInJSonAndWriteInDB();
 
         //Create new project, user on the project and tasks for user
@@ -55,6 +72,9 @@ public class unMarshJson {
         subtaskOne.addSubtaskTwo(subtaskTwo);
         subtaskTwoService.saveSubtaskTwo(subtaskTwo);
         subtaskOneService.updateSubtaskOne(subtaskOne);
+            //delete subtask for subtask
+//        subtaskTwoService.deleteSubtaskTwo(subtaskTwo);
+
         ////////////////////////////////////////
         System.out.println();
         //This part on this code write all information from database

@@ -14,8 +14,21 @@ import ru.Korotaev.TestTask.Services.UserService;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * this class read information from json file thanks to circle and write to database
+ * @author  Sergey Korotaev
+ */
 public class ReadInJSonAndWriteInDB {
-    public void readInJSonAndWriteInDB(){
+    /**
+     * This method read information from json file thanks to circle and write to database
+     * @see Project
+     * @see User
+     * @see Task
+     * @see ProjectService
+     * @see UserService
+     * @see TaskService
+     */
+    public void readInJSonAndWriteInDB() {
         Project projectDB = new Project();
         User userDB = new User();
         Task taskDB = new Task();
@@ -23,25 +36,25 @@ public class ReadInJSonAndWriteInDB {
         UserService userService = new UserService();
         TaskService taskService = new TaskService();
         JSONParser parser = new JSONParser();
-
-        try{
-            JSONArray company =    (JSONArray) parser.parse(new FileReader("src/Company.json"));
+        //Read the Json file
+        try {
+            JSONArray company = (JSONArray) parser.parse(new FileReader("src/Company.json"));
             //variable for project object
-            for (Object o :    company){
+            for (Object o : company) {
 
                 JSONObject project = (JSONObject) o;
 
                 String projectName = (String) project.get("name");
-//                projectDB.setId(j++);
+
                 projectDB.setName(projectName);
-//                Project project1 = new Project(projectDB);
+
                 projectService.saveProject(projectDB);
 
 //                System.out.println(projectDB.getName()+ ":");
 
                 JSONArray users = (JSONArray) project.get("users");
 
-                for (Object u : users){
+                for (Object u : users) {
 
 
                     JSONObject user = (JSONObject) u;
@@ -58,7 +71,7 @@ public class ReadInJSonAndWriteInDB {
 
 
                     JSONArray tasks = (JSONArray) user.get("tasks");
-                    for (Object t : tasks){
+                    for (Object t : tasks) {
                         String taskName = (String) t;
                         taskDB.setName(taskName);
                         taskDB.setUser(userDB);
