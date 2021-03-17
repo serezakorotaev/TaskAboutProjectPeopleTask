@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "subtaskone")
+@Table(name = "SUBTASKONE")
 public class SubtaskOne {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,7 @@ public class SubtaskOne {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "task_id")
     private Task task;
-    @OneToMany(mappedBy = "subtaskOne",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "subtaskOne",cascade = CascadeType.ALL,orphanRemoval = false)
     List<SubtaskTwo> subtaskTwoList = new ArrayList<>();
 
     public SubtaskOne(){}

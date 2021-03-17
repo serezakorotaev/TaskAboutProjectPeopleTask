@@ -1,5 +1,4 @@
 package ru.Korotaev.TestTask.Dao.Daoforchaptertwo;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskOne;

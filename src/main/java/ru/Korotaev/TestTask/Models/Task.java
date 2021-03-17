@@ -3,12 +3,13 @@ package ru.Korotaev.TestTask.Models;
 
 import ru.Korotaev.TestTask.Models.Modelsforchapter2.SubtaskOne;
 
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "task")
+@Table(name = "TASK")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

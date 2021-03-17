@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ProjectPeopleTask@localhost" uuid="b5bc1eeb-779d-4abf-9d4b-f2f69901fff9">
-      <driver-ref>postgresql</driver-ref>
+    <data-source source="LOCAL" name="H2 - ProjectUserTask" uuid="1b53095a-f6b0-4f24-80d0-6b78a2245ef4">
+      <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/ProjectPeopleTask</jdbc-url>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:C:\Users\Mvideo\OneDrive\Рабочий стол\TaskAboutProjectPeopleTask\db\ProjectsUsersTasks;MV_STORE=false</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="eaaf0d79-a941-43ae-95fd-cc2c5fb7fba0">
+      <driver-ref>h2.unified</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/Mvideo/OneDrive/Рабочий стол/TaskAboutProjectPeopleTask/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>org.h2.Driver</jdbc-driver>
+      <jdbc-url>jdbc:h2:mem:ProjectUserTask</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

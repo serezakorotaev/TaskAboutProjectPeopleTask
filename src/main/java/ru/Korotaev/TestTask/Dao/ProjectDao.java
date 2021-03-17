@@ -48,7 +48,7 @@ public class ProjectDao {
         try{
             Class.forName(DRIVER);
             Connection connection = DriverManager.getConnection(URL,USER,PASSWORD);
-            PreparedStatement preparedStatement = connection.prepareStatement("insert into project (?,?,?)" );
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into project (?,?)" );
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
